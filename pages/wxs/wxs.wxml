@@ -1,0 +1,35 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- 1.错误写法 -->
+<!-- <view>{{24.6666666666.toFixed(2)}}</view>
+<view>numberToFixed{{24.666666}}</view> -->
+
+<!-- 2wxs的定义方式 -->
+
+<!-- <wxs module="info">
+  js代码
+  var message="hello world";
+  var name="coderwhy";
+
+  var sum = function(num1,num2){
+    return num1 + num2
+  }
+
+  //commonjs的模块化导出的写法
+  module.exports = {
+    message:message,
+    name:name,
+    sum:sum
+  }
+</wxs> -->
+
+<!-- 2.2定义在单独的wxs文件中，再使用<wxs>标签进行导入 -->
+<!-- 不能使用绝对路径，必须使用相对路径 -->
+<wxs src="../../wxs1/info.wxs" module="info"/>
+
+<view>{{info.message}}</view>
+<view>{{info.name}}</view>
+<view>{{info.sum(2,3)}}</view>
+
+<!-- 3.wxs的应用 -->
+<wxs src="../../wxs1/format.wxs" module="format"/>
+<view>{{format.priceFormat(price,3)}}</view>

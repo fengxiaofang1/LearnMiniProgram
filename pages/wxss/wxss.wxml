@@ -1,0 +1,18 @@
+<!--pages/wxss/wxss.wxml-->
+<!-- 1.设置样式的三种方式
+      1.行内（内联）样式
+      2.页内样式
+      3.全局样式（app.wxss)
+ -->
+
+ <!-- 2.三种样式作用于同一个组件
+      就近原则： 
+      行内样式 > 页内样式 > 全局样式
+ -->
+
+ <!-- 3.wxss中的单位:rpx 适配 (2rpx = 1px) -->
+ <view class="box1"></view>
+ <view class="box2"></view>
+
+<view class="container1">哈哈哈</view>
+<view class="container2">呵呵呵</view>

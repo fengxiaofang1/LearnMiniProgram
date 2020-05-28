@@ -1,0 +1,17 @@
+/* pages/wxss/wxss.wxss */
+.box1{
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+.box2{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: orchid;
+}
+.container1{
+  font-size: 32px;
+}
+.container2{
+  font-size: 64rpx;
+}

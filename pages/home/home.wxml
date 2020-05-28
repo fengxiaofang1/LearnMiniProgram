@@ -1,2 +1,59 @@
 <!--pages/home/home.wxml-->
-<text>hello world</text>
+<!-- <text>hello world</text> -->
+<!-- 1.事件处理的回顾 -->
+<button bindtap="handleBtnClick" size="mini">按钮</button>
+<button bind:tap="handleBtnClick" size="mini">按钮</button>
+<button catch:tap="handleBtnClick" size="mini">按钮</button>
+
+<!-- 2.常见的事件类型 -->
+<view class="box"
+      bind:touchstart="handleTouchStart"
+      bind:touchmove="handleTouchMove"
+      bind:touchend="handleTouchEnd"
+      bind:tap="handleTap"
+      bind:longpress="handleLongPress"></view>
+
+<!-- 3.事件对象的分析 -->
+<!-- 3.1 touches和changedTouches的区别 
+        1.touches用来记录当前有几个手指在小程序中触摸的，以及对应的触摸点的信息(当前屏幕上所有触摸点的列表)
+        2.changedTouches触发事件时改变的触摸点的集合
+    1.在touchend中不同
+    2.在多手指触摸时不同
+-->
+<button id="btn" size="mini" 
+        bindtap="handleEventClick"
+        bindtouchend="handleEventEnd">事件对象</button>
+
+<!-- 3.2 currentTarget和target的区别 
+        1.currentTarget触发事件的view
+        2.target产生事件的view
+-->
+<!-- 会冒泡 -->
+<view class="outer" id="outer" bindtap="handleOuter">
+  外层的view
+  <view class="inner" id="inner" bindtap="handleInner">内层的view</view>
+</view>
+
+<!-- 4.事件的传递参数 -->
+<view class="container">
+        <block wx:for="{{titles}}" wx:key="index">
+                <view class="item" 
+                        bindtap="handleItemClick"
+                        data-index="{{index}}"
+                        data-item="{{item}}">
+                        {{item}}
+                </view>
+        </block>
+</view>
+
+<!-- 5.事件冒泡和时间传递 -->
+<!-- bind：一层层传递 -->
+<!-- catch：阻止事件的进一步传递 -->
+<view class="view1" capture-catch:tap="handleCaptureView1" bindtap="handleBindView1">
+        <view class="view2" capture-bind:tap="handleCaptureView2" bindtap="handleBindView2">
+                <view class="view3" capture-bind:tap="handleCaptureView3" bindtap="handleBindView3"></view>
+        </view>
+</view>
+
+
+
