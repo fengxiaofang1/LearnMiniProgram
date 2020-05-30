@@ -1,0 +1,5 @@
+<!--components/my-cpn/my-cpn.wxml-->
+<view>
+  <view class="title">{{title}}</view>
+  <text class="content" id="info">我是组件的内容，哈哈哈</text>
+</view>
